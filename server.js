@@ -35,6 +35,8 @@ app.get('/',function(request,response){
 });
 
 app.post('/meirellescabelos',function(request,response){
+
+  try {
   let intentName = request.body.queryResult.intent.displayName;
   
   if(intentName ==="agendamento-sim")
@@ -61,6 +63,9 @@ app.post('/meirellescabelos',function(request,response){
   
   
     }
+  } catch (err) {
+    console.error(err.message);
+  }
 
 
 });
