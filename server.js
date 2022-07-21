@@ -57,11 +57,31 @@ app.post('/meirellescabelos',function(request,response){
       return criarEventoCallendario(dateTimeStart,dateTimeEnd,nome,procedimento).then(() =>  {
         let mensagem ="Agendamento Concluído para " +agendamentoString;
         console.log(mensagem)
-        response.json({"fullfillmentText":mensagem})
+        response.json({
+          "fulfillmentMessages": [
+            {
+              "text": {
+                "text": [
+                  mensagem
+                ]
+              }
+            }
+          ]
+        })
       }).catch(() => {
         let mensagem ="Desculpe, não temos vaga para  " +agendamentoString;
         console.log(mensagem)
-        response.json({"fullfillmentText":mensagem});
+        response.json({
+          "fulfillmentMessages": [
+            {
+              "text": {
+                "text": [
+                  mensagem
+                ]
+              }
+            }
+          ]
+        })
       });
   
   
