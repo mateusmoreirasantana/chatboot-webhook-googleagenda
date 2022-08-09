@@ -39,6 +39,7 @@ app.get('/',function(request,response){
 
 app.post('/meirellescabelos',function(request,response){
 
+  console.log(JSON.stringify(request.body))
   try {
   let intentName = request.body.queryResult.intent.displayName;
  
